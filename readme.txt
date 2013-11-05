@@ -3,8 +3,8 @@
 Contributors: dbirlew
 Tags: content
 Requires at least: 3.0.1
-Tested up to: 3.5.1
-Stable tag: 1.0
+Tested up to: 3.7.1
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,12 +20,16 @@ Or:
 1. Install the plugin through the Add New Plugins panel.
 2. Click the "Activate Plugin" link when the install is complete.
 
-
 == Screenshots ==
 
-No screenshots.
+1. Typical post display.
 
 == Changelog ==
+
+= 1.1 =
+
+* Added screenshot.
+* Fixed bug where the_excerpt was not displaying in index or archive pages.
 
 = 1.0 =
 
@@ -54,27 +58,27 @@ This allows you the freedom to style each element individually.
 
 No clue what I'm talking about in the Styling section? Access your theme files in the Appearance Editor panel. Your main stylesheet should load first. At the end, insert either of the following codes:
 
-/* Copy this into your theme's stylesheet to make your Story Highlights align left */
+Copy this into your theme's stylesheet to make your Story Highlights align LEFT:
 .shsp{
-	width:25%;
-	padding:10px;
-	float:left;
-	margin: 0 10px 10px 0;
+width:25%;
+padding:10px;
+float:left;
+margin: 0 10px 10px 0;
 }
 
-/* Or, align it right: */
+Or, align it RIGHT:
 .shsp{
-	width:25%;
-	padding:10px;
-	float:right;
-	margin: 0 0 10px 10px;
+width:25%;
+padding:10px;
+float:right;
+margin: 0 0 10px 10px;
 }
 
 Either code above will get you started, anyway.
 
 == Future Releases? ==
 
-* Maybe an option to display the list in the sidebar instead?
+* Maybe an option to display the list in the sidebar instead? I'll learn how to do that.
 * Maybe allow HTML within the bullet points? That way you can add "NEW!" in red like CNN does.
 
 This is my first plugin so I'll have to research these options. Thanks for your patience.

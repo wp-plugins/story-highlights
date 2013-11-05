@@ -4,7 +4,7 @@ Plugin Name: Story Highlights
 Plugin URI: http://wordpress.org/extend/plugins/story-highlights/
 Description: Like the "Story Highlights" lists on articles at CNN.com, this adds a bullet list to each post's content via an edit post page panel. 
 Author: Dan Birlew
-Version: 1.0
+Version: 1.1
 Author URI: http://danbirlew.com/
 */
 /*  Copyright 2013  Dan Birlew  (email : dan@danbirlew.com)
@@ -84,9 +84,8 @@ function shsp_save_postdata( $post_id, $post ) {
 	update_post_meta($post_id, '_shsp_li5', $shsp_li5_data);
 }
 //Let's add our points to the_content
-function shs_points() {
-	$content = get_the_content();
-	if(is_single()){
+function shs_points($content) {
+	if(is_single($post->ID)){
 		if (get_post_meta(get_the_id(), '_shsp_title', true) !='') {
 			echo '<div class="shsp">';
 			echo '<h1 class="shsp_title">' . get_post_meta(get_the_id(), '_shsp_title', true) . '</h1>';
@@ -98,7 +97,11 @@ function shs_points() {
 			if (get_post_meta(get_the_id(),'_shsp_li5',true)!='') echo '<li class="shsp_li5">' . get_post_meta(get_the_id(), '_shsp_li5', true) . '</li>';
 			echo '</ul></div>';
 			return $content;
+		} else {
+			return $content;
 		}
+	} else {
+		return $content;
 	}
 }
 add_filter('the_content','shs_points');
