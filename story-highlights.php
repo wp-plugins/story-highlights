@@ -2,12 +2,12 @@
 /*
 Plugin Name: Story Highlights
 Plugin URI: http://wordpress.org/extend/plugins/story-highlights/
-Description: Like the "Story Highlights" lists on articles at CNN.com, this adds a bullet list to each post's content via an edit post page panel. 
+Description: Like the "Story Highlights" lists on articles at CNN.com and other sites, this adds a bullet list to each post's content via an edit post page panel. The plugin sets up the code only, styling can be handled by adding the classes provided under the Other Notes to style.css in your theme.
 Author: Dan Birlew
-Version: 1.0
+Version: 1.2
 Author URI: http://danbirlew.com/
 */
-/*  Copyright 2013  Dan Birlew  (email : dan@danbirlew.com)
+/*  Copyright 2014  Dan Birlew  (email : dan@danbirlew.com)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License, version 2, as 
@@ -85,21 +85,27 @@ function shsp_save_postdata( $post_id, $post ) {
 }
 //Let's add our points to the_content
 function shs_points() {
-	$content = get_the_content();
-	if(is_single()){
+	$shsPoints = '';
+	if(is_single($post->ID)){
 		if (get_post_meta(get_the_id(), '_shsp_title', true) !='') {
-			echo '<div class="shsp">';
-			echo '<h1 class="shsp_title">' . get_post_meta(get_the_id(), '_shsp_title', true) . '</h1>';
-			echo '<ul id="shsp_ul">';
-			echo '<li class="shsp_li1">' . get_post_meta(get_the_id(), '_shsp_li1', true) . '</li>';
-			if (get_post_meta(get_the_id(),'_shsp_li2',true)!='') echo '<li class="shsp_li2">' . get_post_meta(get_the_id(), '_shsp_li2', true) . '</li>';
-			if (get_post_meta(get_the_id(),'_shsp_li3',true)!='') echo '<li class="shsp_li3">' . get_post_meta(get_the_id(), '_shsp_li3', true) . '</li>';
-			if (get_post_meta(get_the_id(),'_shsp_li4',true)!='') echo '<li class="shsp_li4">' . get_post_meta(get_the_id(), '_shsp_li4', true) . '</li>';
-			if (get_post_meta(get_the_id(),'_shsp_li5',true)!='') echo '<li class="shsp_li5">' . get_post_meta(get_the_id(), '_shsp_li5', true) . '</li>';
-			echo '</ul></div>';
+			$shsPoints.= '<div class="shsp">';
+			$shsPoints.= '<h3 class="shsp_title">' . get_post_meta(get_the_id(), '_shsp_title', true) . '</h3>';
+			$shsPoints.= '<ul id="shsp_ul">';
+			$shsPoints.= '<li class="shsp_li1">' . get_post_meta(get_the_id(), '_shsp_li1', true) . '</li>';
+			if (get_post_meta(get_the_id(),'_shsp_li2',true)!='') $shsPoints.= '<li class="shsp_li2">' . get_post_meta(get_the_id(), '_shsp_li2', true) . '</li>';
+			if (get_post_meta(get_the_id(),'_shsp_li3',true)!='') $shsPoints.= '<li class="shsp_li3">' . get_post_meta(get_the_id(), '_shsp_li3', true) . '</li>';
+			if (get_post_meta(get_the_id(),'_shsp_li4',true)!='') $shsPoints.= '<li class="shsp_li4">' . get_post_meta(get_the_id(), '_shsp_li4', true) . '</li>';
+			if (get_post_meta(get_the_id(),'_shsp_li5',true)!='') $shsPoints.= '<li class="shsp_li5">' . get_post_meta(get_the_id(), '_shsp_li5', true) . '</li>';
+			$shsPoints.= '</ul></div>';
+			$shsPoints.= $content;
+			return $shsPoints;
+		} else {
 			return $content;
 		}
+	} else {
+		return $content;
 	}
 }
 add_filter('the_content','shs_points');
+
 ?>

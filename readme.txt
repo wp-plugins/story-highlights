@@ -3,12 +3,16 @@
 Contributors: dbirlew
 Tags: content
 Requires at least: 3.0.1
-Tested up to: 3.5.1
-Stable tag: 1.0
+Tested up to: 3.9.1
+Stable tag: 1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Like the "Story Highlights" lists on articles at CNN.com, this adds a bullet list to each post's content via an edit post page panel.
+Adds a bullet list to the start of the post content.
+
+== Description ==
+
+Like the "Story Highlights" lists on articles at CNN.com and other sites, this adds a bullet list to each post's content via an edit post page panel. The plugin sets up the code only, styling can be handled by adding the classes provided under the Other Notes to style.css in your theme.
 
 == Installation ==
 
@@ -26,6 +30,16 @@ No screenshots.
 
 == Changelog ==
 
+= 1.2 =
+
+* Improved compatibility with several other plugins.
+* Vastly improved the output function.
+
+= 1.1 =
+
+* Added screenshot.
+* Fixed bug where the_excerpt was not displaying in index or archive pages.
+
 = 1.0 =
 
 * First release.
@@ -36,8 +50,10 @@ After installation and activation, add a new post or edit an existing post. A ne
 
 == Styling ==
 
-This plugin inserts an unstyled element above your post content. The following unique styles can be added to your stylesheet and used to position and style the element:
+This plugin inserts an unstyled element above your post content. The following unique classes can be added to your stylesheet and used to position and style the element, allowing the freedom to style each element individually:
 
+<pre>
+<code>
 div.shsp
 h1.shsp_title
 ul#shsp_ul
@@ -46,13 +62,16 @@ li.shsp_li2
 li.shsp_li3
 li.shsp_li4
 li.shsp_li5
+</code>
+</pre>
 
-This allows you the freedom to style each element individually.
 
 == Quick Styling ==
 
 No clue what I'm talking about in the Styling section? Access your theme files in the Appearance Editor panel. Your main stylesheet should load first. At the end, insert either of the following codes:
 
+<pre>
+<code>
 /* Copy this into your theme's stylesheet to make your Story Highlights align left */
 .shsp{
 	width:25%;
@@ -68,6 +87,8 @@ No clue what I'm talking about in the Styling section? Access your theme files i
 	float:right;
 	margin: 0 0 10px 10px;
 }
+</code>
+</pre>
 
 Either code above will get you started, anyway.
 
