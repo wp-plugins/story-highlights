@@ -84,7 +84,7 @@ function shsp_save_postdata( $post_id, $post ) {
 	update_post_meta($post_id, '_shsp_li5', $shsp_li5_data);
 }
 //Let's add our points to the_content
-function shs_points() {
+function shs_points($content = null) {
 	$shsPoints = '';
 	if(is_single($post->ID)){
 		if (get_post_meta(get_the_id(), '_shsp_title', true) !='') {
