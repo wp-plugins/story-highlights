@@ -3,8 +3,8 @@
 Contributors: dbirlew
 Tags: content
 Requires at least: 3.0.1
-Tested up to: 3.9.1
-Stable tag: 1.2
+Tested up to: 4.0
+Stable tag: 1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,14 +21,19 @@ Like the "Story Highlights" lists on articles at CNN.com and other sites, this a
 
 Or:
 
-1. Install the plugin through the Add New Plugins panel.
-2. Click the "Activate Plugin" link when the install is complete.
+1. Install the plugin through the Add New Plugins panel
+2. Click the "Activate Plugin" link when the install is complete
 
 == Screenshots ==
 
-No screenshots.
+1. In-post display
 
 == Changelog ==
+
+= 1.3 =
+
+* Added "choose alignment" option on a per-post basis.
+* Added sidebar widget. If the widget is active, the post element does not show.
 
 = 1.2 =
 
@@ -46,12 +51,11 @@ No screenshots.
 
 == Use ==
 
-After installation and activation, add a new post or edit an existing post. A new panel titled "Story Highlights" appears in the right column of the edit post page. If these fields are all blank, the plugin inserts nothing. To add a bulleted "Story Highlights" list to your story, you MUST add a list title (therefore, it doesn't have to be titled "Story Highlights") and the first bullet point. Otherwise the plugin won't insert the list. You may add up to five bullet points, summarizing your post. To delete a bullet point, clear the field. Click the UPDATE button to save your bullet points.
+Add a new post or edit an existing post. A new panel titled "Story Highlights" appears in the right column of the edit post page. If these fields are all blank, the plugin does nothing. To add a "Story Highlights" bullet list to your post, you MUST add a list title and the first bullet point. Otherwise an empty list appears. You may add up to five bullet points, summarizing your post. To delete a bullet point, clear the field. UPDATE your post to save your bullet points.
 
 == Styling ==
 
-This plugin inserts an unstyled element above your post content. The following unique classes can be added to your stylesheet and used to position and style the element, allowing the freedom to style each element individually:
-
+This plugin inserts a (mostly) unstyled element above your post content. The following unique classes can be added to your stylesheet and used to position and style the element, allowing the freedom to style each element individually:
 <pre>
 <code>
 div.shsp
@@ -65,36 +69,10 @@ li.shsp_li5
 </code>
 </pre>
 
+== Alignment ==
 
-== Quick Styling ==
+Below the list fields is the option "choose alignment". By default it is set to "none" which inserts the element as a block above the post. Leave this option if you wish to manually apply your own floats to the element. Otherwise choose "left" or "right" to float the element to the right or the left of the first paragraph of your post. Note that floating the list left or right may break your layout if you insert an image at the start of your post.
 
-No clue what I'm talking about in the Styling section? Access your theme files in the Appearance Editor panel. Your main stylesheet should load first. At the end, insert either of the following codes:
+== Widget ==
 
-<pre>
-<code>
-/* Copy this into your theme's stylesheet to make your Story Highlights align left */
-.shsp{
-	width:25%;
-	padding:10px;
-	float:left;
-	margin: 0 10px 10px 0;
-}
-
-/* Or, align it right: */
-.shsp{
-	width:25%;
-	padding:10px;
-	float:right;
-	margin: 0 0 10px 10px;
-}
-</code>
-</pre>
-
-Either code above will get you started, anyway.
-
-== Future Releases? ==
-
-* Maybe an option to display the list in the sidebar instead?
-* Maybe allow HTML within the bullet points? That way you can add "NEW!" in red like CNN does.
-
-This is my first plugin so I'll have to research these options. Thanks for your patience.
+This plugin adds the Story Highlights widget to the Appearance > Widgets page. Add this widget to the sidebar that will be displayed on single post pages. This widget has no settings. If the widget is active then the post element is not inserted, and the list appears in the sidebar. Remove the widget from the sidebar if you wish to display the element within the post body.
